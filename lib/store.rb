@@ -5,7 +5,7 @@ class Store < ActiveRecord::Base
     validate :at_least_sell_one_apparel
 
     def at_least_sell_one_apparel
-        if  !:mens_apparel || !:womens_apparel
+        if  !:mens_apparel && !:womens_apparel
             erros.add(:mens_apparel, "need to sell at least one of the men's or women's apparel")
         end
     end
